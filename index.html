@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+	<head>
+
+		<meta charset="utf-8">
+		<title>Hangman-Game</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<script src="https://use.fontawesome.com/6f7860f60f.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+	</head>
+
+
+	<body>
+
+		<div class="container">
+
+			<header>
+
+			<div class="row" id="header">
+
+				<div class="col-md-12">
+
+					<img id="logo" src="assets/images/gotLogo.png">
+					
+				</div> <!--column 1-->
+				
+			</div> <!--header-->
+
+			</header>
+
+
+
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<img src="assets/images/headof.gif" id="gif">
+
+					<div id="dashes"></div>
+
+					<br>
+
+					<div id=guessedLetters>Guessed Letters:</div>
+
+					<br>
+
+					<div id="valar">VALAR MORGHULIS:<div id="remaining">10</div></div>
+
+					<br>
+
+					<button onclick="playAgain()">Play Again</button>
+
+
+					<script src="assets/javascript/game.js"></script>
+
+				</div> <!--big column 2-->
+
+			</div> <!--main row 2-->
+
+		</div> <!--container-->
+
+	</body>
+
+
+</html>
