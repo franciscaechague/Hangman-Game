@@ -1,9 +1,9 @@
 
 //if the word is guessed display an image then reset.
-
+var theme = new Audio('assets/gotSong.wav');
 
 //I give the computer options of words
-var series = ["cersei", "winterfell", "baratheon", "throne", "westeros"];
+var series = ["cersei", "winterfell", "baratheon", "throne", "westeros", "dracarys", "theon", "whitewalker", "hodor", "bravos", "moondoor", "kingslayer", "unsolid", "stark"];
 
 
 //the computer chooses the word
@@ -16,6 +16,7 @@ randomSeries.length;
 var numberOfLoops = 0;
 
 var guessesLeft = 10;
+
 
 for (var i = 0; i < randomSeries.length; i++) {
 
@@ -40,6 +41,8 @@ for (var i = 0; i < randomSeries.length; i++) {
 
 
 //if the letter is not in the word, add it to guessedLetters
+var win = 0;
+
 
 document.onkeyup = function(event) {
 
@@ -61,6 +64,7 @@ document.onkeyup = function(event) {
 	}
 
 //if the letter is in the word, replace dash with letter.
+
 	else {
 
 		 var subArrayIndexLog = [];
@@ -75,12 +79,14 @@ document.onkeyup = function(event) {
     		var tmp = subArrayIndexLog[j];
     		var allDashes = document.getElementsByClassName('placeholder');
     		allDashes[tmp].innerHTML = userGuess;
+    		win++;
     	}
 
 	}
 
 
 	} 
+
 
 	else{
 
@@ -97,16 +103,27 @@ document.onkeyup = function(event) {
 		}
 
 		grow(0);
-		/*alert("NOPE!");
 
-		var videoInside = document.getElementById("dashes");
 
-		var gotVideo = document.createElement("video");
+	}
 
-		gotVideo.innerHTML = ("src=../images/headoff.mp4");
+	if (win === randomCharacters.length) {
 
-		videoInside.appendChild(gotVideo);*/
+		theme.play();
 
+		var $gif = $('#win');
+
+		grow = function (size) {
+			   	if (size < 50) {
+			        console.log(size);
+			        $gif.css('width', size + '%');
+			        $gif.css('height', size + '%');
+			        size++;
+			        setTimeout(grow, 10, size);
+			    }
+			}
+
+			grow(0);
 
 	}
 	
