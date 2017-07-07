@@ -1,9 +1,7 @@
 
-//if the word is guessed display an image then reset.
-
 
 //I give the computer options of words
-var series = ["cersei", "winterfell", "baratheon", "throne", "westeros"];
+var series = ["cersei", "winterfell", "baratheon", "throne", "westeros", "unsolid", "hodor", "targaryen", "varys", "lannister", "whitewalkers", "dorne", "dragons"];
 
 
 //the computer chooses the word
@@ -12,14 +10,20 @@ var randomSeries = series[Math.floor(Math.random() * series.length)];
 
 //displays the dashes that represent the letters
 randomSeries.length;
+// console.log(randomSeries.length);
 
 var numberOfLoops = 0;
 
 var guessesLeft = 10;
 
+var leftToGuess = 0;
+
+
+
 for (var i = 0; i < randomSeries.length; i++) {
 
 	numberOfLoops++;
+
 
     var holder = document.createElement("span");
 
@@ -31,10 +35,6 @@ for (var i = 0; i < randomSeries.length; i++) {
     holder.appendChild(blankSpot);
 
     document.querySelector("#dashes").appendChild(holder);
-
-	/*randomDashes[i] = "_";
-
-	document.getElementById("dashes").innerHTML = randomDashes;*/
 
 }
 
@@ -68,61 +68,69 @@ document.onkeyup = function(event) {
     	for (var i = 0; i < randomCharacters.length; i++) {
       		if (randomCharacters[i] === userGuess){
       			subArrayIndexLog.push(i);
-      			console.log(subArrayIndexLog);
-      		};      		
+      		};
     	};
     	for(var j=0; j<subArrayIndexLog.length; j++){
     		var tmp = subArrayIndexLog[j];
     		var allDashes = document.getElementsByClassName('placeholder');
     		allDashes[tmp].innerHTML = userGuess;
+				leftToGuess = allDashes[tmp].length;
+
     	}
+
 
 	}
 
 
-	} 
+	}
 
 	else{
 
-		var $gif = $('#gif');
+		var $gifLose = $('#gifLose');
 
 		grow = function (size) {
 		    if (size < 50) {
 		        console.log(size);
-		        $gif.css('width', size + '%');
-		        $gif.css('height', size + '%');
+		        $gifLose.css('width', size + '%');
+		        $gifLose.css('height', size + '%');
 		        size++;
 		        setTimeout(grow, 10, size);
 		    }
 		}
 
 		grow(0);
-		/*alert("NOPE!");
-
-		var videoInside = document.getElementById("dashes");
-
-		var gotVideo = document.createElement("video");
-
-		gotVideo.innerHTML = ("src=../images/headoff.mp4");
-
-		videoInside.appendChild(gotVideo);*/
-
 
 	}
-	
+
+	if (leftToGuess == randomSeries.length) {
+
+		var obj = document.createElement("audio");
+
+	  obj.src = "gameMainTheme.wav";
+
+	  obj.play();
+
+		var $gifWin = $('#gifWin');
+
+		grow = function (size) {
+		    if (size < 50) {
+		        console.log(size);
+		        $gifWin.css('width', size + '%');
+		        $gifWin.css('height', size + '%');
+		        size++;
+		        setTimeout(grow, 10, size);
+		    }
+		}
+
+		grow(0);
+	}
+
 
 
 };
+
 
 //if you run out of guesses reset.
 function playAgain() {
     location.reload();
 }
-
-
-
-
-
-
-
-
