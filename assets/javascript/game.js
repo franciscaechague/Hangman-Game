@@ -74,7 +74,7 @@ document.onkeyup = function(event) {
     		var tmp = subArrayIndexLog[j];
     		var allDashes = document.getElementsByClassName('placeholder');
     		allDashes[tmp].innerHTML = userGuess;
-				leftToGuess = allDashes[tmp].length;
+				leftToGuess ++;
 
     	}
 
