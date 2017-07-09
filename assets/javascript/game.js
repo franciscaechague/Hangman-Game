@@ -3,7 +3,7 @@
 var theme = new Audio('assets/gotSong.wav');
 
 //I give the computer options of words
-var series = ["cersei", "winterfell", "baratheon", "throne", "westeros", "dracarys", "theon", "whitewalker", "hodor", "bravos", "moondoor", "kingslayer", "unsolid", "stark"];
+var series = ["cersei", "winterfell", "baratheon", "throne", "westeros", "dracarys", "theon", "whitewalker", "hodor", "bravos", "moondoor", "kingslayer", "unsolid", "stark", "snow", "tyrell", "lannister"];
 
 
 //the computer chooses the word
@@ -73,7 +73,7 @@ document.onkeyup = function(event) {
       		if (randomCharacters[i] === userGuess){
       			subArrayIndexLog.push(i);
       			console.log(subArrayIndexLog);
-      		};      		
+      		};
     	};
     	for(var j=0; j<subArrayIndexLog.length; j++){
     		var tmp = subArrayIndexLog[j];
@@ -85,7 +85,7 @@ document.onkeyup = function(event) {
 	}
 
 
-	} 
+	}
 
 
 	else{
@@ -126,7 +126,7 @@ document.onkeyup = function(event) {
 			grow(0);
 
 	}
-	
+
 
 
 };
@@ -135,11 +135,3 @@ document.onkeyup = function(event) {
 function playAgain() {
     location.reload();
 }
-
-
-
-
-
-
-
-
